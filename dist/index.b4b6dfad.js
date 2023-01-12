@@ -2905,23 +2905,16 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactDom = require("react-dom");
 var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
+var _mainView = require("./components/main-view/main-view");
+var _mainViewDefault = parcelHelpers.interopDefault(_mainView);
 // Import index.scss
 var _indexScss = require("./index.scss");
 // Main component
-class MyFlixApplication extends (0, _reactDefault.default).Component {
+class MyBooksApplication extends (0, _reactDefault.default).Component {
     render() {
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "my-flix",
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: "Shall I compare thee to a summer's day?"
-            }, void 0, false, {
-                fileName: "src/index.jsx",
-                lineNumber: 12,
-                columnNumber: 9
-            }, this)
-        }, void 0, false, {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainViewDefault.default), {}, void 0, false, {
             fileName: "src/index.jsx",
-            lineNumber: 11,
+            lineNumber: 12,
             columnNumber: 7
         }, this);
     }
@@ -2929,14 +2922,14 @@ class MyFlixApplication extends (0, _reactDefault.default).Component {
 // Finds root of the app
 const container = document.getElementsByClassName("app-container")[0];
 //Render app in the root DOM element
-(0, _reactDomDefault.default).render(/*#__PURE__*/ (0, _reactDefault.default).createElement(MyFlixApplication), container);
+(0, _reactDomDefault.default).render(/*#__PURE__*/ (0, _reactDefault.default).createElement(MyBooksApplication), container);
 
   $parcel$ReactRefreshHelpers$98a3.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","./components/main-view/main-view":"4gflv","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("515e4a4a06672881");
 
@@ -27100,7 +27093,172 @@ module.exports = require("4701aa53a1150f");
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{}],"lJZlQ":[function() {},{}],"fD7H8":[function(require,module,exports) {
+},{}],"4gflv":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$f7a6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$f7a6.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MainView", ()=>MainView);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _bookCard = require("../book-card/book-card");
+var _bookView = require("../book-view/book-view");
+class MainView extends (0, _reactDefault.default).Component {
+    constructor(){
+        super();
+        this.state = {
+            books: [
+                {
+                    "_id": {
+                        "$oid": "63b8a05b3668348cc197f714"
+                    },
+                    "Title": "The Lightning Thief",
+                    "Synopsis": {
+                        "Paragraph1": "Percy Jackson is about to be kicked out of boarding school...again. And that's the least of his troubles. Lately, mythological monsters and the god of Mount Olympus seem to be walking straight out of the pages and into his life. And worse, he angered a few of them. Zeus's master lightning bolt has been stolen, and Percy is the prime suspect.",
+                        "Paragraph2": "Now Percy and his friends have just ten days to find and return Zeus's stolen property and bring peace to a warring Mount Olympus. But to succeed in his quest, Percy will have to do more than catch the thief: he must come to terms with the father who abandoned him; solve the riddle of the Oracle, which warns him of betrayal by a friend; and unravel a treachery more powerful than the gods themselves."
+                    },
+                    "Published": 2005.0,
+                    "Genre": "Young Abult",
+                    "Author": {
+                        "Name": "Rick Riordan",
+                        "Bio": 'Rick Riordan, dubbed "storyteller of the gods" by Publisher Weekly, is the author of five New York Times #1 best-selling series. He is best known for his Percy Jackson and the Olympians books, which bring Greek mythology to life for contemporary readers. He expanded on that series with two more: the Heros of Olympus and the Trials of Apollo, which cleverly combine Greek and Roman gods and heroes with his beloved modern characters. Rick tackled Egyptian gods in the magic-filled Kane Chronicles, and Norse mythology in Magnus Chase and the Gods of Asgard.',
+                        "Birth": 1964.0,
+                        "Death": null
+                    },
+                    "ImagePath": "https://m.media-amazon.com/images/I/51PRKKi2BuL._AC_SY780_.jpg"
+                },
+                {
+                    "_id": {
+                        "$oid": "63b8a07b3668348cc197f715"
+                    },
+                    "Title": "The Hobbit",
+                    "Synopsis": {
+                        "Paragraph1": "When Thorin Oakenshield and his band of dwarves embark upon a dangerous quest to reclaim their home from the ruthless dragon Smaug, Gandalf the wizard suggests an unlikely accomplice: Bilbo Baggins, an unassuming hobbit dwelling in peaceful Hobbiton.",
+                        "Paragraph2": "As they journey from the wonders of Rivendell to the terrors of Mirkwood and beyond, Bilbo discovers within himself unexpected qualities of courage and cunning. And with each step, a newfound love of adventure propels him toward his great destiny...a destiny that waits in the dark caverns beneath the Misty Mountains, where a twisted creature known as Gullum jealously guards a precious magic ring."
+                    },
+                    "Published": 1937.0,
+                    "Genre": "Fantasy",
+                    "Author": {
+                        "name": "J.R.R. Tolkien",
+                        "bio": "John Ronald Reuel Tolkien was born on January 3, 1892, in Bloemfontein, South Africa. After serving in World War I, he embarked upon a disinguished academic career and was recognized as one of the finestes philologists in the world. He was a professor of Anglo-Saxon at Oxford, a fellow of Pembroke College, and a fellow of Merton College until his retirement in 1959. He is, however, beloved throughout the world as the creator of Middle Earth and author of such classic works as The Hobbit and The Lord of the Rings. He died on September 2, 1973, at the age of eighty-one.",
+                        "birth": 1892.0,
+                        "death": 1973.0
+                    },
+                    "ImagePath": "https://m.media-amazon.com/images/I/413V3sIKSJL._AC_SY780_.jpg"
+                },
+                {
+                    "_id": {
+                        "$oid": "63b8a0963668348cc197f716"
+                    },
+                    "Title": "Hamlet",
+                    "Synopsis": {
+                        "Paragraph1": "A student is called home from university to find his life turned upside down. He had the world at his feet, but now everything has changed. Who can be trusted? Who can be believed?",
+                        "Paragraph2": "Sent by the ghost of his father to avenge his brutal death, Hamlet's mission to expose the truth is a perilous journey of madness, murder and lost love. What will ultimately become of a young man sent to kill?"
+                    },
+                    "Published": 1599.0,
+                    "Genre": "Drama",
+                    "Author": {
+                        "Name": "William Shakespeare",
+                        "Bio": "William Shakespeare was a renowned English poet, playwright, and actor born in 1564 in Stratford-upon-Avon. His birthday is most commonly celebrated on 23 April, which is also believed to be the date he died in 1616. Shakespeare was a prolific writer during the Elizabethan and Jacobean ages of British theatre (sometimes called the English Renaissance or the Early Modern Period). Shakespeare's plays are perhaps his most enduring legacy, but they are not all he wrote. Shakespeare's poems also remain popular to this day.",
+                        "Birth": 1564.0,
+                        "Death": 1616.0
+                    },
+                    "ImagePath": "https://m.media-amazon.com/images/I/513mu30Xy7L._AC_SY780_.jpg"
+                }
+            ],
+            selectedBook: null
+        };
+    }
+    setSelectedBook(newSelectedBook) {
+        this.setState({
+            selectedBook: newSelectedBook
+        });
+    }
+    render() {
+        const { books , selectedBook  } = this.state;
+        if (books.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "main-view",
+            children: "The list is empty"
+        }, void 0, false, {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 76,
+            columnNumber: 20
+        }, this);
+        else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "main-view",
+            children: selectedBook ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bookView.BookView), {
+                book: selectedBook,
+                onBackClick: (newSelectedBook)=>{
+                    this.setSelectedBook(newSelectedBook);
+                }
+            }, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 81,
+                columnNumber: 27
+            }, this) : books.map((book)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bookCard.BookCard), {
+                    book: book,
+                    onBookClick: (book)=>{
+                        this.setSelectedBook(book);
+                    }
+                }, book._id, false, {
+                    fileName: "src/components/main-view/main-view.jsx",
+                    lineNumber: 83,
+                    columnNumber: 29
+                }, this))
+        }, void 0, false, {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 79,
+            columnNumber: 17
+        }, this);
+    }
+}
+exports.default = MainView;
+
+  $parcel$ReactRefreshHelpers$f7a6.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../book-card/book-card":"8FC36","../book-view/book-view":"6u6eS","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC"}],"8FC36":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$1994 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$1994.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "BookCard", ()=>BookCard);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+const BookCard = ({ book , onBookClick  })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        onClick: ()=>{
+            onBookClick(book);
+        },
+        children: book.Title
+    }, void 0, false, {
+        fileName: "src/components/book-card/book-card.jsx",
+        lineNumber: 5,
+        columnNumber: 9
+    }, undefined);
+};
+_c = BookCard;
+var _c;
+$RefreshReg$(_c, "BookCard");
+
+  $parcel$ReactRefreshHelpers$1994.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC"}],"fD7H8":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -27264,6 +27422,196 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"968defb1d09c1fb0":"8QnHs"}]},["dAPVv","gWjqn","d8Dch"], "d8Dch", "parcelRequire71c8")
+},{"968defb1d09c1fb0":"8QnHs"}],"6u6eS":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$1e99 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$1e99.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "BookView", ()=>BookView);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+const BookView = ({ book , onBackClick  })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "book-view",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "book-poster",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    src: book.ImagePath
+                }, void 0, false, {
+                    fileName: "src/components/book-view/book-view.jsx",
+                    lineNumber: 7,
+                    columnNumber: 17
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/book-view/book-view.jsx",
+                lineNumber: 6,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "book-title",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: "label",
+                        children: "Title: "
+                    }, void 0, false, {
+                        fileName: "src/components/book-view/book-view.jsx",
+                        lineNumber: 10,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: "value",
+                        children: book.Title
+                    }, void 0, false, {
+                        fileName: "src/components/book-view/book-view.jsx",
+                        lineNumber: 11,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/book-view/book-view.jsx",
+                lineNumber: 9,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "book-description",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: "label",
+                        children: "Synopsis: "
+                    }, void 0, false, {
+                        fileName: "src/components/book-view/book-view.jsx",
+                        lineNumber: 14,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        className: "value",
+                        children: book.Synopsis.Paragraph1
+                    }, void 0, false, {
+                        fileName: "src/components/book-view/book-view.jsx",
+                        lineNumber: 15,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        className: "value",
+                        children: book.Synopsis.Paragraph2
+                    }, void 0, false, {
+                        fileName: "src/components/book-view/book-view.jsx",
+                        lineNumber: 16,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/book-view/book-view.jsx",
+                lineNumber: 13,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "book-genre",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: "label",
+                        children: "Published: "
+                    }, void 0, false, {
+                        fileName: "src/components/book-view/book-view.jsx",
+                        lineNumber: 19,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: "value",
+                        children: book.Published
+                    }, void 0, false, {
+                        fileName: "src/components/book-view/book-view.jsx",
+                        lineNumber: 20,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/book-view/book-view.jsx",
+                lineNumber: 18,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "book-genre",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: "label",
+                        children: "Genre: "
+                    }, void 0, false, {
+                        fileName: "src/components/book-view/book-view.jsx",
+                        lineNumber: 23,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: "value",
+                        children: book.Genre
+                    }, void 0, false, {
+                        fileName: "src/components/book-view/book-view.jsx",
+                        lineNumber: 24,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/book-view/book-view.jsx",
+                lineNumber: 22,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "book-Author",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: "label",
+                        children: "Director: "
+                    }, void 0, false, {
+                        fileName: "src/components/book-view/book-view.jsx",
+                        lineNumber: 27,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        className: "value",
+                        children: book.Author.Name
+                    }, void 0, false, {
+                        fileName: "src/components/book-view/book-view.jsx",
+                        lineNumber: 28,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/book-view/book-view.jsx",
+                lineNumber: 26,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: ()=>{
+                    onBackClick(null);
+                },
+                children: "Back"
+            }, void 0, false, {
+                fileName: "src/components/book-view/book-view.jsx",
+                lineNumber: 30,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/book-view/book-view.jsx",
+        lineNumber: 5,
+        columnNumber: 9
+    }, undefined);
+};
+_c = BookView;
+var _c;
+$RefreshReg$(_c, "BookView");
+
+  $parcel$ReactRefreshHelpers$1e99.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC"}],"lJZlQ":[function() {},{}]},["dAPVv","gWjqn","d8Dch"], "d8Dch", "parcelRequire71c8")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
