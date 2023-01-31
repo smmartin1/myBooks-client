@@ -1,0 +1,1 @@
+{"mappings":"AAAA;AACA;AACA;ACFA;EACE;EACA","sources":["src/components/navbar-view/navbar-view.scss","src/index.scss"],"sourcesContent":[".navigation-bar {\n  background-color: purple;\n}","body {\n  background-color: #DDD3ED;\n  font-family: 'Mulish', sans-serif;\n}"],"names":[],"version":3,"file":"index.f99bb150.css.map","sourceRoot":"/__parcel_source_root/"}
