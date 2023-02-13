@@ -18,7 +18,7 @@ export function UpdateUser({ user }) {
             Email: email
         }, { headers: { Authorization: `Bearer ${token}`}
         }).then((response) => {
-            alert('Profile has been updated. Please log back in with updated information.');
+            alert('Profile has been updated');
             localStorage.setItem('user', response.data.Username);
             window.open('/', '_self');
         }).catch(function (error) {
