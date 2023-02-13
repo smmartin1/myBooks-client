@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Form, Button, Card, CardGroup, Container, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+import './login-view.scss';
+
 export function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -40,7 +42,6 @@ export function LoginView(props) {
       }).then(response => {
         const data = response.data;
         props.onLoggedIn(data);
-        console.log(data);
       }).catch(e => {
         console.log('User does not exist');
       });
@@ -52,14 +53,15 @@ export function LoginView(props) {
       <Row>
         <Col>
           <CardGroup>
-            <Card>
-              <Card.Body className="login-card">
-                <Card.Title>Login</Card.Title>
+            <Card className="login-card">
+              <Card.Body>
+                <Card.Title className="login-title">Login</Card.Title>
                 <Form>
                   <Form.Group controlId="formUsername">
                     <Form.Label>Username:</Form.Label>
                     <Form.Control
                       type="text"
+                      className="user-input"
                       value={username}
                       onChange={e => setUsername(e.target.value)}
                       placeholder="Enter your username."
@@ -72,6 +74,7 @@ export function LoginView(props) {
                     <Form.Label>Password:</Form.Label>
                     <Form.Control
                       type="password"
+                      className="user-input"
                       value={password}
                       onChange={e => setPassword(e.target.value)}
                       placeholder="Enter your password."
@@ -82,7 +85,7 @@ export function LoginView(props) {
                   <Button variant="primary" type="submit" id="login-btn" onClick={handleSubmit}>Log In</Button>
 
                   <Link to={"/register"}>
-                    <Button variant="primary" type="submit" id="register-btn">New User?</Button>
+                    <Button variant="primary" type="submit" id="register-btn">Sign Up</Button>
                   </Link>
                 </Form>
               </Card.Body>

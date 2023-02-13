@@ -1,0 +1,30 @@
+.book-title {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.book-poster {
+    width: 250px;
+    float: left;
+    margin-right: 30px;
+}
+
+.author-link, .author-link:hover {
+    color: #333333;
+    text-decoration: none;
+}
+
+.author-link:hover {
+    text-decoration: underline;
+}
+
+#add-btn, #remove-btn {
+    background-color: 8D85CC;
+}
+
+#bookBack-btn {
+    background-color: 7B70CC;
+    float: right;
+}

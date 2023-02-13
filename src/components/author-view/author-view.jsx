@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 
+import './author-view.scss';
+
 export class AuthorView extends React.Component{
     keypressCallback(event){
         console.log(event.key);
@@ -21,16 +23,17 @@ export class AuthorView extends React.Component{
         if(author.Death === null) {
             return(
                 <div className="author-view">
-                    <div className="book-author">
-                        <span className="label">{author.Name}</span>
+                    <div className="author-name">
+                        <h2>{author.Name}</h2>
+                    </div>
+                    <div>
+                        <img className="author-img" crossOrigin="anonymous" src={author.ImageURL} />
                     </div>
                     <div className="author-bio">
-                        <span className="label">Bio: </span>
-                        <span className="value">{author.Bio}</span>
+                        <p><b>Bio</b>: {author.Bio}</p>
                     </div>
                     <div className="author-birth">
-                        <span className="label">Birthday: </span>
-                        <span className="value">{author.Birth}</span>
+                        <p><b>Birthday</b>: {author.Birth}</p>
                     </div>
                     
                     <Button id="author-button" onClick={() => { onBackClick(null); }}>Back</Button>
@@ -39,21 +42,20 @@ export class AuthorView extends React.Component{
         } else {
             return(
                 <div className="author-view">
-                    <div className="book-author">
-                        <span className="label">{author.Name}</span>
+                    <div className="author-name">
+                        <h2>{author.Name}</h2>
+                    </div>
+                    <div>
+                        <img className="author-img" crossOrigin="anonymous" src={author.ImageURL} />
                     </div>
                     <div className="author-bio">
-                        <span className="label">Bio: </span>
-                        <span className="value">{author.Bio}</span>
+                        <p><b>Bio</b>: {author.Bio}</p>
                     </div>
                     <div className="author-birth">
-                        <span className="label">Birthday: </span>
-                        <span className="value">{author.Birth}</span>
-                    </div>
-            
+                        <p><b>Birthday</b>: {author.Birth}</p>
+                    </div>           
                     <div className="author-death">
-                        <span className="label">Death: </span>
-                        <span className="value">{author.Death}</span>
+                        <p><b>Death</b>: {author.Death}</p>
                     </div>
                     
                     <Button id="author-button" onClick={() => { onBackClick(null); }}>Back</Button>

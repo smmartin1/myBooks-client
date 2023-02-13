@@ -3,6 +3,8 @@ import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+import './registration-view.scss';
+
 export function RegistrationView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
@@ -66,25 +68,45 @@ export function RegistrationView(props) {
     <Container>
       <Row>
         <Col>
-          <Card>
-            <Card.Body className="registration-card">
-              <Card.Title>Welcome!</Card.Title>
+          <Card className="registration-card">
+            <Card.Body>
+              <Card.Title className="registration-title">Welcome!</Card.Title>
               <Form onSubmit={(e) => handleRegister(e)}>
                 <Form.Group>
                   <Form.Label>Username:</Form.Label>
-                  <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} />
+                  <Form.Control 
+                    type="text"
+                    className="user-input"
+                    value={username} 
+                    onChange={e => setUsername(e.target.value)} 
+                  />
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>Password:</Form.Label>
-                  <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} />
+                  <Form.Control 
+                    type="password"
+                    className="user-input"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                  />
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>Email:</Form.Label>
-                  <Form.Control type="email" value={email} onChange={e => setEmail(e.target.value)} />
+                  <Form.Control 
+                    type="email"
+                    className="user-input"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                  />
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>Birthday:</Form.Label>
-                  <Form.Control type="date" value={birthday} onChange={e => setBirthday(e.target.value)} />
+                  <Form.Control
+                    type="date"
+                    className="user-input"
+                    value={birthday}
+                    onChange={e => setBirthday(e.target.value)}
+                  />
                 </Form.Group>
                 <Button type="submit" id="submit-btn" onClick={handleRegister}>Submit</Button>
 

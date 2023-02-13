@@ -4,6 +4,7 @@ import { Card, Container, Row, Col, Button } from 'react-bootstrap';
 import { FavoriteBooks } from './favorite-books';
 import { UpdateUser } from './update-user';
 
+import './profile-view.scss';
 
 export function ProfileView(props) {
     const [user, setUser] = useState(props.user);
@@ -46,14 +47,14 @@ export function ProfileView(props) {
 
     return (
         <Container>
-            <Row>
+            <Row className="profile-info">
                 <Col md={4}>
-                    <Card>
-                        <Card.Body id="info-card">
+                    <Card id="info-card">
+                        <Card.Body>
                         <Card.Title>Your Info</Card.Title>
-                        <Card.Text>Username: {user.Username}</Card.Text>
-                        <Card.Text>Email: {user.Email}</Card.Text>
-                        <Button type="secondary" id="delete-button" onClick={() => removeUser(user.Username)}>Delete Your Account</Button>
+                        <Card.Text><b>Username</b>: {user.Username}</Card.Text>
+                        <Card.Text><b>Email</b>: {user.Email}</Card.Text>
+                        <Button type="secondary" id="delete-btn" onClick={() => removeUser(user.Username)}>Delete Your Account</Button>
                         </Card.Body>
                     </Card>
                 </Col>
@@ -65,7 +66,7 @@ export function ProfileView(props) {
 
             <Row>
                 <Col>
-                    <h2>Favorite Books</h2>
+                    <h2 className="favorite-books">Favorite Books</h2>
                 </Col>
             </Row>
 

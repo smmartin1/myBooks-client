@@ -29,7 +29,7 @@ export class MainView extends React.Component {
     }
 
     onLoggedIn(authData) {
-        //console.log(authData);
+        console.log(authData);
         this.setState({ user: authData.users.Username });
 
         console.log(authData.users.Username);
@@ -59,7 +59,7 @@ export class MainView extends React.Component {
 
                     <Row className="main-view justify-content-md-center">
                         <Route exact path="/" render={() => {
-                            if (!user) return <Col md={5}>
+                            if (!user) return <Col md={6}>
                                 <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
                             </Col>
 
@@ -74,7 +74,7 @@ export class MainView extends React.Component {
 
                         <Route path="/register" render={() => {
                             if (user) return <Redirect to="/" />
-                            return <Col>
+                            return <Col md={6}>
                               <RegistrationView />
                             </Col>
                         }} />

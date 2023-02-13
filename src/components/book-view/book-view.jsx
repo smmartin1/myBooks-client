@@ -4,9 +4,11 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+import './book-view.scss';
+
 export class BookView extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             FavoriteBooks: []
         };
@@ -22,6 +24,19 @@ export class BookView extends React.Component {
     
     componentWillUnmount() {
         document.removeEventListener('keypress', this.keypresssCallback);
+    }
+
+    getFav = () => {
+        const token = localStorage.getItem('token');
+        const user = localStorage.getItem('user');
+
+        axios.get(`https://mighty-falls-90534.herokuapp.com/users/${user}/books`, {
+            headers: { Authorization: `Bearer ${token}` }
+        }).then(response => {
+            this.setState({ FavoriteBooks: response.data });
+        }).catch(error => {
+            console.log(error);
+        });
     }
 
     addFav = () => {
@@ -62,83 +77,90 @@ export class BookView extends React.Component {
 
     render() {
         const {book, onBackClick} = this.props;
-        const { FavortieBooks } = this.state;
         const favBook = this.state.FavoriteBooks;
         let isFav = favBook.includes(this.props.book._id);
 
         if (!book.Synopsis.Paragraph2) {
             return(
                 <div className="book-view">
-                    <div className="book-poster">
-                        <img crossOrigin="anonymous" src={book.ImagePath} />
-                    </div>
                     <div className="book-title">
                         <h2>{book.Title}</h2>
                     </div>
+
+                    <div>
+                        <img className="book-poster" crossOrigin="anonymous" src={book.ImagePath} />
+                    </div>
+                    
                     <div className="book-description">
-                        <span className="label">Synopsis: </span>
-                        <p className="value">{book.Synopsis.Paragraph1}</p>
-                    </div>
-                    <div className="book-genre">
-                        <p>Published: {book.Published}</p>
-                    </div>
-                    <div className="book-genre">
-                        <p>Genre: {book.Genre}</p>
-                    </div>
-                    <div className="book-Author">
-                        <p>
-                            Author: <Link to={`/authors/${book.Author.Name}`}>
-                                <Button variant="link">{book.Author.Name}</Button>
-                            </Link>
-                        </p>
+                        <p className="value"><b>Synopsis</b>: {book.Synopsis.Paragraph1}</p>
                     </div>
 
-                    {!isFav && (
-                        <Button id="add-button" onClick={this.addFav}>Add to Favorites</Button>
-                    )}
-                    {isFav && (
-                        <Button id="remove-button" onClick={this.removeFav}>Remove from Favorites</Button>
-                    )}
+                    <div className="published-year">
+                        <p><b>Published</b>: {book.Published}</p>
+                    </div>
 
-                    <Button onClick={() => { onBackClick(null); }}>Back</Button>
-                </div>
-            );
-        } else {
-            return(
-                <div className="book-view">
-                    <div className="book-poster">
-                        <img crossOrigin="anonymous" src={book.ImagePath} />
-                    </div>
-                    <div className="book-title">
-                        <h2>{book.Title}</h2>
-                    </div>
-                    <div className="book-description">
-                        <span className="label">Synopsis: </span>
-                        <p className="value">{book.Synopsis.Paragraph1}</p>
-                        <p className="value">{book.Synopsis.Paragraph2}</p> 
-                    </div>            
                     <div className="book-genre">
-                        <p>Published: {book.Published}</p>
+                        <p><b>Genre</b>: {book.Genre}</p>
                     </div>
-                    <div className="book-genre">
-                        <p>Genre: {book.Genre}</p>
-                    </div>
+
                     <div className="book-Author">
                         <p>
-                            Author: <Link to={`/authors/${book.Author.Name}`}>
+                            <b>Author</b>: <Link className="author-link" to={`/authors/${book.Author.Name}`}>
                                 {book.Author.Name}
                             </Link>
                         </p>
                     </div>
 
                     {!isFav && (
-                        <Button id="add-button" onClick={this.addFav}>Add to Favorites</Button>
+                        <Button id="add-btn" onClick={this.addFav}>Add to Favorites</Button>
                     )}
                     {isFav && (
-                        <Button id="remove-button" onClick={this.removeFav}>Remove from Favorites</Button>
+                        <Button id="remove-btn" onClick={this.removeFav}>Remove from Favorites</Button>
                     )}
 
-                    <Button onClick={() => { onBackClick(null); }}>Back</Button>
+                    <Button id="bookBack-btn" onClick={() => { onBackClick(null); }}>Back</Button>
+                </div>
+            );
+        } else {
+            return(
+                <div className="book-view">
+                    <div className="book-title">
+                        <h2>{book.Title}</h2>
+                    </div>
+
+                    <div>
+                        <img className="book-poster" crossOrigin="anonymous" src={book.ImagePath} />
+                    </div>
+
+                    <div className="book-description">
+                        <p className="value"><b>Synopsis</b>: {book.Synopsis.Paragraph1}</p>
+                        <p className="value">{book.Synopsis.Paragraph2}</p> 
+                    </div> 
+
+                    <div className="published-year">
+                        <p><b>Published</b>: {book.Published}</p>
+                    </div>
+
+                    <div className="book-genre">
+                        <p><b>Genre</b>: {book.Genre}</p>
+                    </div>
+
+                    <div className="book-Author">
+                        <p>
+                            <b>Author</b>: <Link className="author-link" to={`/authors/${book.Author.Name}`}>
+                                {book.Author.Name}
+                            </Link>
+                        </p>
+                    </div>
+
+                    {!isFav && (
+                        <Button id="add-btn" onClick={this.addFav}>Add to Favorites</Button>
+                    )}
+                    {isFav && (
+                        <Button id="remove-btn" onClick={this.removeFav}>Remove from Favorites</Button>
+                    )}
+
+                    <Button id="bookBack-btn" onClick={() => { onBackClick(null); }}>Back</Button>
                 </div>
             );
         }
@@ -156,7 +178,8 @@ BookView.propTypes = {
         Published: PropTypes.number.isRequired,
         Author: PropTypes.shape({
             Name: PropTypes.string.isRequired
-        })
+        }),
+        _id: PropTypes.string
     }).isRequired,
     onBackClick: PropTypes.func.isRequired
 };

@@ -3,17 +3,24 @@ import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+import './book-card.scss';
 
 export function BookCard({ book }) {
     return (
         <Card className="book-card">
-            <Card.Img crossOrigin="anonymous" variant="top" src={book.ImagePath} />
-            <Card.Body className="book-body">
+            <Card.Img className="book-img" crossOrigin="anonymous" variant="top" src={book.ImagePath} />
+            <Card.Body>
                 <Card.Title className="card-title">{book.Title}</Card.Title>
-                <Link to={`/books/${book._id}`}>
-                    <Button id="book-btn" variant="primary">Open</Button>
-                </Link>
-                
+
+                <div id="bookCard-btn">
+                    <Link to={`/books/${book._id}`}>
+                        <Button id="book-btn" variant="primary">Open</Button>
+                    </Link>
+
+                    <Link to={`/authors/${book.Author.Name}`}>
+                        <Button id="author-btn" variant="primary">Author</Button>
+                    </Link>
+                </div>
             </Card.Body>
         </Card>
     );
@@ -21,6 +28,9 @@ export function BookCard({ book }) {
 
 BookCard.propTypes = {
     book: PropTypes.shape({
-        Title: PropTypes.string.isRequired
+        Title: PropTypes.string.isRequired,
+        Author: PropTypes.shape({
+            Name: PropTypes.string.isRequired
+        })
     }).isRequired
 };

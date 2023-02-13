@@ -1,0 +1,39 @@
+.profile-info {
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.favorite-books {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+#info-card, #update-card, #favorite-card {
+    background-color: #c2bbfc;
+    box-shadow: 10px 10px 10px #7B70CC;
+}
+
+#delete-btn, #update-btn, #favorite-btn {
+    background-color: #8D85CC;
+}
+
+#update-btn { margin-top: 15px;}
+
+.update-label {
+    margin-top: 5px;
+}
+
+.update-info {
+    background-color: #EBEDFC;
+}
+
+.favorite-poster{
+    height: 500px;
+}
+
+#remove-btn {
+    background-color: #7B70CC;
+    float: right;
+}

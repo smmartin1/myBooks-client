@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Col, Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+import './profile-view.scss';
+
 export function FavoriteBooks({ user, books, favoriteBooks }) {
     const bookList = books.filter(b => {
         return favoriteBooks.includes(b._id)
@@ -28,13 +30,16 @@ export function FavoriteBooks({ user, books, favoriteBooks }) {
                 : bookList.map ((book) => {
                     return (
                         <Col xs={12} md={6} lg={4}>
-                            <Card className="book-card">
-                                <Card.Img crossOrigin="anonymous" variant="top" src={book.ImagePath} />
-                                <Card.Body className="book-body">
-                                    <Card.Title className="card-title">
-                                        <Link to={`/books/${book._id}`}>{book.Title}</Link>
-                                    </Card.Title>
-                                    <Button variant="secondary" id="remove-button" onClick={() => {removeFav(book._id)}}>Remove</Button>
+                            <Card id="favorite-card">
+                                <Card.Img className="favorite-poster" crossOrigin="anonymous" variant="top" src={book.ImagePath} />
+                                <Card.Body>
+                                    <Card.Title className="favorite-title">{book.Title}</Card.Title>
+
+                                    <Link to={`/books/${book._id}`}>
+                                        <Button id="favorite-btn" variant="primary">Open</Button>
+                                    </Link>
+
+                                    <Button variant="primary" id="remove-btn" onClick={() => {removeFav(book._id)}}>Remove</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
