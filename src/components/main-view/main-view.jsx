@@ -1,39 +1,33 @@
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { setBooks, setUser } from '../../actions/actions';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 
+import BooksList from '../books-list/books-list';
+//import { BookCard } from '../book-card/book-card';
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
-import { BookCard } from '../book-card/book-card';
 import { BookView } from '../book-view/book-view';
 import { AuthorView } from '../author-view/author-view';
 import { NavbarView } from '../navbar-view/navbar-view';
 import { ProfileView } from '../profile-view/profile-view';
 
-export class MainView extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            books: [],
-            user: null
-        };
-    }
-
+class MainView extends React.Component {
     componentDidMount() {
         let accessToken = localStorage.getItem('token');
         if (accessToken != null) {
-            this.setState({ user: localStorage.getItem('user')});
+            const { setUser } = this.props;
+            setUser(localStorage.getItem('user'));
             this.getBooks(accessToken);
         }
     }
 
     onLoggedIn(authData) {
+        const { setUser } = this.props;
+        setUser(authData.users.Username);
         console.log(authData);
-        this.setState({ user: authData.users.Username });
-
-        console.log(authData.users.Username);
-
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.users.Username);
         this.getBooks(authData.token);
@@ -43,14 +37,14 @@ export class MainView extends React.Component {
         axios.get('https://mighty-falls-90534.herokuapp.com/books', {
             headers: { Authorization: 'Bearer ' + token }
         }).then(response => {
-            this.setState({ books: response.data });
+            this.props.setBooks(response.data);
         }).catch(error => {
             console.log(error);
         });
     }
 
     render() {
-        const { books, user } = this.state;
+        let { books, user } = this.props;
 
         return (
             <Container>
@@ -65,11 +59,14 @@ export class MainView extends React.Component {
 
                             if (books.length === 0) return <div className="main-view" />
 
+                            return <BooksList books={books}/>
+                            /*
                             return books.map(b => (
                                 <Col md={3} key={b._id}>
                                     <BookCard book={b} />
                                 </Col>
                             ))
+                            */
                         }} />
 
                         <Route path="/register" render={() => {
@@ -98,17 +95,15 @@ export class MainView extends React.Component {
                             </Col>
                         }} />
 
-                        <Route path={`/users/${user}`} render={({ history, match }) => {
-                                if (!user) return <Redirect to="/" />
-                                return <Col>
-                                    <ProfileView
-                                        user={user}
-                                        book={books}
-                                        onBackClick={() => history.goBack()}
-                                    />
-                                </Col>
+                        <Route path={`/users/${user}`} render={({ history }) => {
+                            return <Col>
+                                <ProfileView
+                                    user={user}
+                                    book={books}
+                                    onBackClick={() => history.goBack()}
+                                />
+                            </Col>
                         }} />
-
                     </Row>
                 </Router>
             </Container>
@@ -116,4 +111,11 @@ export class MainView extends React.Component {
     }
 }
 
-export default MainView;
+let mapStateToProps = state => {
+    return {
+        books: state.books,
+        user: state.user
+    }
+}
+
+export default connect(mapStateToProps, {setBooks, setUser}) (MainView);
