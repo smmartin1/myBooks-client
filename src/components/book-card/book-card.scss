@@ -1,7 +1,8 @@
-.book-card {
+#book-card {
     background-color: C2BBFC;
     margin: 20px 0;
     box-shadow: 10px 10px 10px #7B70CC;
+    height: 500px;
 }
 
 .book-img {
@@ -13,11 +14,17 @@
     text-align: center;
 }
 
+#bookCard-btn {
+    position: absolute;
+    bottom: 20px;
+}
+
 #book-btn {
     background-color: #8D85CC;
 }
 
 #author-btn {
     background-color: #7B70CC;
-    float: right;
+    position: absolute;
+    left: 130px;
 }

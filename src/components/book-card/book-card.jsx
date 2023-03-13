@@ -7,7 +7,7 @@ import './book-card.scss';
 
 export function BookCard({ book }) {
     return (
-        <Card className="book-card">
+        <Card id="book-card">
             <Card.Img className="book-img" crossOrigin="anonymous" variant="top" src={book.ImagePath} />
             <Card.Body>
                 <Card.Title className="card-title">{book.Title}</Card.Title>
@@ -31,6 +31,7 @@ BookCard.propTypes = {
         Title: PropTypes.string.isRequired,
         Author: PropTypes.shape({
             Name: PropTypes.string.isRequired
-        })
+        }),
+        _id: PropTypes.string
     }).isRequired
 };
