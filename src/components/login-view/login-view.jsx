@@ -53,11 +53,11 @@ export function LoginView(props) {
       <Row>
         <Col>
           <CardGroup>
-            <Card className="login-card">
+            <Card id="login-card">
               <Card.Body>
                 <Card.Title className="login-title">Login</Card.Title>
                 <Form>
-                  <Form.Group controlId="formUsername">
+                  <Form.Group id="form-group" controlId="formUsername">
                     <Form.Label>Username:</Form.Label>
                     <Form.Control
                       type="text"
@@ -70,7 +70,7 @@ export function LoginView(props) {
                     {usernameErr && <p>{usernameErr}</p>}
                   </Form.Group>
 
-                  <Form.Group controlId="formPasswrod">
+                  <Form.Group id="form-group" controlId="formPasswrod">
                     <Form.Label>Password:</Form.Label>
                     <Form.Control
                       type="password"
@@ -82,11 +82,12 @@ export function LoginView(props) {
                     {/* code added here to display validation error */}
                     {passwordErr && <p>{passwordErr}</p>}
                   </Form.Group>
-                  <Button variant="primary" type="submit" id="login-btn" onClick={handleSubmit}>Log In</Button>
 
                   <Link to={"/register"}>
                     <Button variant="primary" type="submit" id="register-btn">Sign Up</Button>
                   </Link>
+
+                  <Button variant="primary" type="submit" id="login-btn" onClick={handleSubmit}>Log In</Button>
                 </Form>
               </Card.Body>
             </Card>
