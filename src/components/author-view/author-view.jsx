@@ -33,7 +33,7 @@ export class AuthorView extends React.Component{
                         <p><b>Bio</b>: {author.Bio}</p>
                     </div>
                     <div className="author-birth">
-                        <p><b>Birthday</b>: {author.Birth}</p>
+                        <p><b>Birth Year</b>: {author.Birth}</p>
                     </div>
                     
                     <Button id="author-button" onClick={() => { onBackClick(null); }}>Back</Button>
@@ -52,7 +52,7 @@ export class AuthorView extends React.Component{
                         <p><b>Bio</b>: {author.Bio}</p>
                     </div>
                     <div className="author-birth">
-                        <p><b>Birthday</b>: {author.Birth}</p>
+                        <p><b>Birth Year</b>: {author.Birth}</p>
                     </div>           
                     <div className="author-death">
                         <p><b>Death</b>: {author.Death}</p>
