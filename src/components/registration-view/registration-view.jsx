@@ -68,38 +68,42 @@ export function RegistrationView(props) {
     <Container>
       <Row>
         <Col>
-          <Card className="registration-card">
+          <Card id="registration-card">
             <Card.Body>
               <Card.Title className="registration-title">Welcome!</Card.Title>
+              <p className='notice'>We do not collect data and send any emails.</p>
               <Form onSubmit={(e) => handleRegister(e)}>
-                <Form.Group>
+                <Form.Group id="form-group">
                   <Form.Label>Username:</Form.Label>
                   <Form.Control 
                     type="text"
                     className="user-input"
+                    placeholder="username"
                     value={username} 
                     onChange={e => setUsername(e.target.value)} 
                   />
                 </Form.Group>
-                <Form.Group>
+                <Form.Group id="form-group">
                   <Form.Label>Password:</Form.Label>
                   <Form.Control 
                     type="password"
                     className="user-input"
+                    placeholder="password (must be at least 6 characters)"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                   />
                 </Form.Group>
-                <Form.Group>
+                <Form.Group id="form-group">
                   <Form.Label>Email:</Form.Label>
                   <Form.Control 
                     type="email"
                     className="user-input"
+                    placeholder="email"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                   />
                 </Form.Group>
-                <Form.Group>
+                <Form.Group id="form-group">
                   <Form.Label>Birthday:</Form.Label>
                   <Form.Control
                     type="date"
@@ -108,11 +112,12 @@ export function RegistrationView(props) {
                     onChange={e => setBirthday(e.target.value)}
                   />
                 </Form.Group>
-                <Button type="submit" id="submit-btn" onClick={handleRegister}>Submit</Button>
 
                 <Link to={"/"}>
                   <Button type="submit" id="back-btn">Back</Button>
                 </Link>
+
+                <Button type="submit" id="submit-btn" onClick={handleRegister}>Submit</Button>
               </Form>
             </Card.Body>
           </Card>
