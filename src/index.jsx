@@ -1,18 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Container from 'react-bootstrap/Container';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import booksApp from './reducers/reducers';
 import MainView from './components/main-view/main-view';
 
-// Import index.scss
-import './index.scss';
+const store = createStore(booksApp);
 
 // Main component
 class MyBooksApplication extends React.Component {
   render() {
     return (
-      <Container className="app">
-        <MainView />
-      </Container>
+      <Provider store={store}>
+        <Container className="app">
+          <MainView />
+        </Container>
+      </Provider>
     );
   }
 }
