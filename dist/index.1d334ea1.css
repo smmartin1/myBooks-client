@@ -1,4 +1,4 @@
-.login-card {
+#login-card {
   background-color: #C2BBFC;
   margin-top: 50px;
   box-shadow: 10px 10px 10px #7B70CC;
@@ -9,27 +9,34 @@
   text-align: center;
 }
 
+#form-group {
+  margin-top: 10px;
+}
+
 .user-input {
   background-color: #EBEDFC;
 }
 
 #login-btn, #register-btn {
-  background-color: #8D85CC;
   margin-top: 20px;
 }
 
-#login-btn {
+#register-btn {
   background-color: #8D85CC;
 }
 
-#register-btn {
+#login-btn {
   float: right;
   background-color: #7B70CC;
 }
-.registration-card {
+#registration-card {
   background-color: #C2BBFC;
-  margin-top: 50px;
+  margin-top: 30px;
   box-shadow: 10px 10px 10px #7B70CC;
+}
+
+.notice {
+  text-align: center;
 }
 
 .registration-title {
@@ -37,45 +44,25 @@
   text-align: center;
 }
 
+#form-group {
+  margin-top: 10px;
+}
+
 .user-input {
   background-color: #EBEDFC;
 }
 
 #submit-btn, #back-btn {
-  background-color: #8D85CC;
   margin-top: 20px;
 }
 
-#submit-btn {
-  background-color: #8D85CC;
-}
-
 #back-btn {
-  float: right;
-  background-color: #7B70CC;
-}
-.book-card {
-  background-color: C2BBFC;
-  margin: 20px 0;
-  box-shadow: 10px 10px 10px #7B70CC;
-}
-
-.book-img {
-  height: 350px;
-}
-
-.card-title {
-  text-decoration: underline;
-  text-align: center;
-}
-
-#book-btn {
   background-color: #8D85CC;
 }
 
-#author-btn {
-  background-color: #7B70CC;
+#submit-btn {
   float: right;
+  background-color: #7B70CC;
 }
 .book-title {
   margin-top: 10px;
@@ -171,8 +158,46 @@
   background-color: #7B70CC;
   float: right;
 }
-body {
-  background-color: #D0D6F7;
-  font-family: "Mulish", sans-serif;
+#search-form {
+  background-color: #F2F4FC;
+  box-shadow: 10px 10px 10px #7B70CC;
+  margin: 10px auto 20px;
+  text-align: center;
+  width: 50%;
+}
+#book-card {
+  background-color: C2BBFC;
+  margin: 20px 0;
+  box-shadow: 10px 10px 10px #7B70CC;
+  height: 500px;
+}
+
+.book-img {
+  height: 350px;
+}
+
+.card-title {
+  text-decoration: underline;
+  text-align: center;
+}
+
+#bookCard-btn {
+  position: absolute;
+  bottom: 20px;
+}
+
+#book-btn {
+  background-color: #8D85CC;
+}
+
+#author-btn {
+  background-color: #7B70CC;
+  position: absolute;
+  left: 130px;
+}
+#app-title {
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 10px;
 }
 /*# sourceMappingURL=index.1d334ea1.css.map */
