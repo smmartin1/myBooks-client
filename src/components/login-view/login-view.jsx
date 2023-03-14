@@ -44,6 +44,7 @@ export function LoginView(props) {
         props.onLoggedIn(data);
       }).catch(e => {
         console.log('User does not exist');
+        alert('Username or password is incorrect');
       });
     }
   };
@@ -66,8 +67,6 @@ export function LoginView(props) {
                       onChange={e => setUsername(e.target.value)}
                       placeholder="Enter your username."
                     />
-                    {/* code added here to display validation error */}
-                    {usernameErr && <p>{usernameErr}</p>}
                   </Form.Group>
 
                   <Form.Group id="form-group" controlId="formPasswrod">
@@ -79,8 +78,6 @@ export function LoginView(props) {
                       onChange={e => setPassword(e.target.value)}
                       placeholder="Enter your password."
                     />
-                    {/* code added here to display validation error */}
-                    {passwordErr && <p>{passwordErr}</p>}
                   </Form.Group>
 
                   <Link to={"/register"}>
