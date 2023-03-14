@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/smmartin1/myBooks-client/issues"
   },
-  "homepage": "https://github.com/smmartin1/myBooks-client",
+  "homepage": "https://github.com/smmartin1/myBooks-client#readme",
   "dependencies": {
     "axios": "^0.27.2",
     "json5": "^2.2.3",
