@@ -20,6 +20,7 @@
   "homepage": "https://github.com/smmartin1/myBooks-client#readme",
   "dependencies": {
     "axios": "^0.27.2",
+    "buffer": "^6.0.3",
     "json5": "^2.2.3",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
