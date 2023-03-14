@@ -30,17 +30,16 @@ export function ProfileView(props) {
     const removeUser = () => {
         const token = localStorage.getItem('token');
         const user = localStorage.getItem('user');
+        
         axios.delete(`https://mighty-falls-90534.herokuapp.com/users/${user}`, {
           headers: { Authorization: `Bearer ${token}`}
-        })
-        .then((response) => {
+        }).then((response) => {
           alert('User has been deleted from the app');
           console.log(response.data);
           localStorage.removeItem('token');
           localStorage.removeItem('user');
           window.open('/', '_self');
-        })
-        .catch(function (error) {
+        }).catch(function (error) {
             console.log(error);
         });
     }
